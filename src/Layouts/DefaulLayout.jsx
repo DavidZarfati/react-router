@@ -5,13 +5,18 @@ import Header from "../components/Header";
 export default function DefaultLayout() {
     return (
         <>
-            <Header />
+            <div className="d-flex">
+                <div className="navbar">
+                    <Header />
+                </div>
+                <div className="contenuto">
+                    <main>
+                        <Outlet />
+                    </main>
 
-            <main>
-                <Outlet />
-            </main>
-
-            <Footer />
+                    <Footer />
+                </div>
+            </div>
         </>
     )
 }
