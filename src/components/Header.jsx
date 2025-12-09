@@ -21,30 +21,15 @@ export default function Header() {
             <nav>
                 <ul className={styles.menuList}>
                     {navLinks.map((link, index) => (
-                        // <li key={index}>
-                        //     <NavLink to={link.path} className={styles["menu-link"]}>{link.title}</NavLink>
-                        // </li>
-                        <li>
-                            <a key={index} href={link.path} data-text={link.title}>{link.title}</a>
+                        <li key={index}>
+                            <NavLink to={link.path} className={styles["menu-link"]} data-text={link.title}>
+                                {link.title}
+                            </NavLink>
                         </li>
                     ))}
                 </ul>
                 <ul>
-                    {/* <li>
-                        <a key={index} href={link.path} data-text="&nbsp;Home">&nbsp;Home&nbsp;</a>
-                    </li> */}
-                    {/* <li>
-                        <a href="#" data-text="&nbsp;About">&nbsp;About&nbsp;</a>
-                    </li>
-                    <li>
-                        <a href="#" data-text="&nbsp;Services">&nbsp;Services&nbsp;</a>
-                    </li>
-                    <li>
-                        <a href="#" data-text="&nbsp;Blog">&nbsp;Blog&nbsp;</a>
-                    </li>
-                    <li>
-                        <a href="#" data-text="&nbsp;Contact">&nbsp;Contact&nbsp;</a>
-                    </li> */}
+                    {/* Sezione secondaria, puoi aggiungere altri <NavLink> qui se necessario */}
                 </ul>
             </nav>
         </header>
