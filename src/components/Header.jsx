@@ -1,3 +1,5 @@
+import styles from "./HeaderModule.module.css"
+import { NavLink } from "react-router-dom"
 export default function Header() {
     const navLinks = [
         {
@@ -5,7 +7,7 @@ export default function Header() {
             path: "/"
         },
         {
-            title: "Chi siamo",
+            title: "About",
             path: "/chi-siamo"
         },
         {
@@ -15,23 +17,35 @@ export default function Header() {
     ]
 
     return (
-        <header>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0  d-flex flex-column justify-content-flex-start">
-                            {navLinks.map((link, index) => (
-                                <li key={index} className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href={link.path}>{link.title}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                </div>
+        <header className={styles.header}>
+            <nav>
+                <ul className={styles.menuList}>
+                    {navLinks.map((link, index) => (
+                        // <li key={index}>
+                        //     <NavLink to={link.path} className={styles["menu-link"]}>{link.title}</NavLink>
+                        // </li>
+                        <li>
+                            <a key={index} href={link.path} data-text={link.title}>{link.title}</a>
+                        </li>
+                    ))}
+                </ul>
+                <ul>
+                    {/* <li>
+                        <a key={index} href={link.path} data-text="&nbsp;Home">&nbsp;Home&nbsp;</a>
+                    </li> */}
+                    {/* <li>
+                        <a href="#" data-text="&nbsp;About">&nbsp;About&nbsp;</a>
+                    </li>
+                    <li>
+                        <a href="#" data-text="&nbsp;Services">&nbsp;Services&nbsp;</a>
+                    </li>
+                    <li>
+                        <a href="#" data-text="&nbsp;Blog">&nbsp;Blog&nbsp;</a>
+                    </li>
+                    <li>
+                        <a href="#" data-text="&nbsp;Contact">&nbsp;Contact&nbsp;</a>
+                    </li> */}
+                </ul>
             </nav>
         </header>
     )
