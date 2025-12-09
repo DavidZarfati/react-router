@@ -6,6 +6,7 @@ import DefaultLayout from './Layouts/DefaulLayout'
 import Home from './pages/Home'
 import Prodotti from './pages/Prodotti'
 import axios from 'axios'
+import Chisiamo from './pages/Chi-siamo'
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path='/' element={<Home />} />
-            <Route path='/chi-siamo' element={<Chi-siamo />} />
+            <Route path='/chi-siamo' element={<Chisiamo />} />
             <Route path='/prodotti' element={<Prodotti prodotti={prodotti} />} />
           </Route>
         </Routes>
