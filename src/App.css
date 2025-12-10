@@ -9,9 +9,7 @@
     font-size: 0.5rem;
 }
 
-image {
-    max-width: 100%;
-}
+
 
 .contenuto {
     position: relative;
@@ -52,4 +50,9 @@ body {
 
 .destro a::before {
     all: unset;
+}
+
+img {
+    max-width: 500px;
+    max-height: 500px;
 }
