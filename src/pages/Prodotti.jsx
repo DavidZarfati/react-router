@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 export default function Prodotti({ prodotti }) {
     return (
         <>
@@ -13,6 +15,10 @@ export default function Prodotti({ prodotti }) {
                                 <h3>prodotto : {prodotto.title}</h3>
                                 <h5>prezzo : {prodotto.price}$ </h5>
                                 <h6>descrizione : {prodotto.description}</h6>
+                                <NavLink to={prodotto.path} data-text={prodotto.title}>
+                                    {prodotto.title}
+                                </NavLink>
+
                             </div>
                         </li>
                     ))

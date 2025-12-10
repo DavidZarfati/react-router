@@ -40,3 +40,15 @@ body {
 .color-green {
     color: green;
 }
+
+.destro a {
+    all: unset;
+}
+
+.destro a:hover {
+    all: unset;
+}
+
+.destro a::before {
+    all: unset;
+}
