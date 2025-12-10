@@ -47,6 +47,7 @@ body {
 
 .destro a:hover {
     all: unset;
+    color: green;
 }
 
 .destro a::before {

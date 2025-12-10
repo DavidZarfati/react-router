@@ -15,10 +15,12 @@ export default function Prodotti({ prodotti }) {
                                 <h3>prodotto : {prodotto.title}</h3>
                                 <h5>prezzo : {prodotto.price}$ </h5>
                                 <h6>descrizione : {prodotto.description}</h6>
-                                <NavLink to={prodotto.path} data-text={prodotto.title}>
+                                <NavLink
+                                    to={`/prodotti/${prodotto.id}`}
+                                    className="prodotto-link"
+                                >
                                     {prodotto.title}
                                 </NavLink>
-
                             </div>
                         </li>
                     ))
