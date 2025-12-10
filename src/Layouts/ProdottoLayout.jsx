@@ -1,28 +1,33 @@
 import { useEffect, useState } from "react";
 import { Outlet, useParams, NavLink } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function ProdottoLayout() {
     const { id } = useParams();
     const [prodotto, setProdotto] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
+        setProdotto(null);
         setLoading(true);
         setError(null);
         axios.get(`https://fakestoreapi.com/products/${id}`)
             .then(res => {
                 if (!res.data || !res.data.id) {
                     setError("Prodotto non trovato");
-                    setProdotto(null);
+                    console.log("Non trovato");
+                    navigate("/prodotti");
                 } else {
                     setProdotto(res.data);
                 }
-                setLoading(false);
             })
             .catch(err => {
-                setError("Prodotto non trovato");
+                console.log("errore:", err);
+            })
+            .finally(() => {
                 setLoading(false);
             });
     }, [id]);
@@ -47,6 +52,16 @@ export default function ProdottoLayout() {
                     </div>
                 )}
                 <h1>Pagina del singolo prodotto {id}</h1>
+                <button onClick={(() => {
+                    const nextProd = parseInt(id)
+                    navigate(`/prodotti/${nextProd - 1}`)
+                })}>Indietro</button>
+                <button onClick={(() => {
+                    const nextProd = parseInt(id)
+                    navigate(`/prodotti/${nextProd + 1}`)
+                })}>Avanti</button>
+
+                <br />
                 <NavLink to={`/`} >
                     Torna alla Home
                 </NavLink>
@@ -54,7 +69,7 @@ export default function ProdottoLayout() {
                 <NavLink to={`/prodotti`} >
                     Torna alla sezione prodotti
                 </NavLink>
-            </section>
+            </section >
         </>
     );
 }
