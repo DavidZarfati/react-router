@@ -9,9 +9,13 @@
     font-size: 0.5rem;
 }
 
+image {
+    max-width: 100%;
+}
+
 .contenuto {
     position: relative;
-    left: 400px;
+    left: 250px;
     top: 30px;
     width: 60%;
 }
