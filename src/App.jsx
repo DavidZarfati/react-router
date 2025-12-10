@@ -33,7 +33,7 @@ function App() {
             <Route path='/prodotti' element={<Prodotti prodotti={prodotti} />} />
           </Route>
           <Route element={<ProdottoLayout prodotti={prodotti} />}>
-            <Route path='/prodotti/:id' element={<Prodotto prodotto={prodotti.find(p => p.id == useParams()?.id)} />} />
+            <Route path='/prodotti/:id' element={<Prodotto prodotti={prodotti} />} />
           </Route>
         </Routes>
       </BrowserRouter >

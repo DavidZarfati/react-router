@@ -1,7 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-export default function Prodotto({ prodotto }) {
+export default function Prodotto({ prodotti }) {
+    const { id } = useParams();
+    const prodotto = Array.isArray(prodotti) ? prodotti.find(p => String(p.id) === String(id)) : null;
     if (!prodotto) return <div>Prodotto non trovato</div>;
     const { title, price, description, image } = prodotto;
     return (
